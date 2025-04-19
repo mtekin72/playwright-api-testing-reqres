@@ -1,0 +1,41 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  playwright-test:
+    image: playwright-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    command: "npx playwright test"
+    volumes:
+      - ./playwright-report/:/app/playwright-report
+      - ./test-results/:/app/test-results
+
+
+
+
+
+# version: '3.8'
+# services:
+#   playwright-test:
+#     image: playwright-test
+#     build:
+#       context: .
+#       dockerfile: ./Dockerfile
+#     command: "npx playwright test"
+#     volumes:
+#       - ./playwright-report/:/app/playwright-report
+#       - ./test-results/:/app/test-results
+#     ports:
+#       - "9323:9323"
+      
+
+   
+
+
+# docker-compose.yml
+
+

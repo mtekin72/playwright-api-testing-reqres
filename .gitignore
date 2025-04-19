@@ -1,0 +1,8 @@
+# .gitignore
+
+node_modules/
+.env
+playwright-report/
+test-results/
+dist/
+coverage/
