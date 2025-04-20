@@ -12,7 +12,7 @@ import { newUser, updatedUser, user1, user2 } from "@fixtures/testData";
 test.describe("User API", () => {
   test("should create a user with valid data @smoke @regression @e2e ", async ({ request }) => {
     const { status, data: user } = await createUser(request, newUser);
-    expect(status).toBe(201);
+    expect(status).toBe(203);
     expect(user.name).toBe(newUser.name);
     expect(user.job).toBe(newUser.job);
     expect(user).toHaveProperty("id");
