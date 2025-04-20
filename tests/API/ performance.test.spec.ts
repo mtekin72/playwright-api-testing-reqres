@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("should complete 10 parallel requests under 500ms benchmark,@smoke@regression@e2e", async ({ request }) => {
+test("should complete 10 parallel requests under 500ms benchmark, @smoke @regression @e2e", async ({ request }) => {
   const timesToRun = 10;
   const benchmarkLimit = 500; // ms
   const start = Date.now();

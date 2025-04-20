@@ -43,8 +43,8 @@ test.describe("User API", () => {
   test("should update user details successfully @smoke @regression @e2e ", async ({ request }) => {
     const { status, data: user } = await updateUser(request, 2, updatedUser);
     expect(status).toBe(200);
-    expect(updatedUser.name).toEqual("neo");
-    expect(updatedUser.job).toEqual("hacker");
+    expect(user.name).toEqual(updatedUser.name);
+    expect(user.job).toEqual(updatedUser.job);
   });
 
   test("should delete user and return 204 status @smoke @regression @e2e ", async ({ request }) => {

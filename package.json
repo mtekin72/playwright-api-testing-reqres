@@ -7,7 +7,8 @@
     "test:smoke": "npx playwright test --grep @smoke",
     "test:regression": "npx playwright test --grep @regression",
     "test:e2e": "npx playwright test --grep @e2e",
-    "test:API": "npx playwright test --project='API Tests'"
+    "test:API": "npx playwright test --project='API Tests'",
+    "test:report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
