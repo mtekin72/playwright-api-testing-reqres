@@ -23,7 +23,7 @@ pipeline {
 
     stage('Run Playwright API Tests') {
       environment {
-        TOKEN = credentials('API_TOKEN') // ✅ Use secret from Jenkins
+        TOKEN = credentials('your-secret-token-id') // ✅ Use secret from Jenkins
       }
       steps {
         echo "Running tests tagged with: ${params.TAGS}"
