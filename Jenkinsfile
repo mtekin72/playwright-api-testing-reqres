@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    nodejs 'Node18' // ✅ Must match the name defined in Global Tool Configuration
+    nodejs 'Node18'
   }
 
   parameters {
@@ -11,7 +11,6 @@ pipeline {
 
   environment {
     API_BASE_URL = 'https://reqres.in/'
-    TOKEN = 'QpwL5tke4Pnpja7X4'
   }
 
   stages {
@@ -23,9 +22,12 @@ pipeline {
     }
 
     stage('Run Playwright API Tests') {
+      environment {
+        TOKEN = credentials('API_TOKEN') // ✅ Use secret from Jenkins
+      }
       steps {
         echo "Running tests tagged with: ${params.TAGS}"
-        sh 'mkdir -p results' // ✅ Make sure result folder exists
+        sh 'mkdir -p results'
         sh "npx playwright test --grep \"${params.TAGS}\" --project=API || true"
       }
     }
@@ -34,10 +36,7 @@ pipeline {
   post {
     always {
       echo 'Pipeline finished.'
-      // ✅ Publish test results so Blue Ocean shows them per test
       junit 'results/test-results.xml'
-
-      // ✅ Archive HTML report if needed
       archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
     }
   }
