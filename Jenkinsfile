@@ -11,11 +11,6 @@ pipeline {
 
   environment {
     API_BASE_URL = 'https://reqres.in/'
-
-    // If you have set this as a secret text in Jenkins credentials, keep it like this:
-    // TOKEN = credentials('reqres-api-token')
-
-    // Otherwise, fallback to hardcoded token (NOT recommended for real projects):
     TOKEN = 'QpwL5tke4Pnpja7X4'
   }
 
@@ -30,6 +25,7 @@ pipeline {
     stage('Run Playwright API Tests') {
       steps {
         echo "Running tests tagged with: ${params.TAGS}"
+        sh 'mkdir -p results' // ✅ Make sure result folder exists
         sh "npx playwright test --grep \"${params.TAGS}\" --project=API || true"
       }
     }
@@ -38,11 +34,11 @@ pipeline {
   post {
     always {
       echo 'Pipeline finished.'
-      // Add this if you want HTML report later:
-      // archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+      // ✅ Publish test results so Blue Ocean shows them per test
+      junit 'results/test-results.xml'
+
+      // ✅ Archive HTML report if needed
+      archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
     }
   }
 }
-
-
-//deneme
