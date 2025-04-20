@@ -16,7 +16,7 @@ pipeline {
     // TOKEN = credentials('reqres-api-token')
 
     // Otherwise, fallback to hardcoded token (NOT recommended for real projects):
-    TOKEN = 'QpwL5tke4Pnpja7X4'
+    TOKEN = 'your-secret-token-id'
   }
 
   stages {
