@@ -14,7 +14,7 @@ playwright-e2e-api-tests/
 ├── .github/                 # GitHub Actions workflows
 │   └── workflows/
 │       └── playwright.yml   # CI/CD workflow for Playwright tests
-├── fixtures/                # Test data for UI and API tests
+├── fixtures/                # Test data for API tests
 │   └── testData.ts
 ├── helpers/                 # Utility functions for tests
 │   ├── types.ts

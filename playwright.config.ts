@@ -10,7 +10,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 3,// Retries each failing test up to 3 times
-  workers: process.env.CI ? 4 : undefined,
+  workers: 4,
 
   reporter: [
     ['list'],
