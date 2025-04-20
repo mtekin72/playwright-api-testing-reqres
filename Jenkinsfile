@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    nodejs 'Node 18' // 👈 Must match the name you defined in Global Tool Config
+    nodejs 'Node 18'
   }
 
   parameters {
@@ -11,7 +11,7 @@ pipeline {
 
   environment {
     API_BASE_URL = 'https://reqres.in/'
-    TOKEN = credentials('your-secret-token-id') // Optional, if using credentials plugin
+    TOKEN = credentials('your-secret-token-id') // Optional, if using Jenkins credentials
   }
 
   stages {
