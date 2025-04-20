@@ -12,11 +12,12 @@ export default defineConfig({
   workers: process.env.CI ? 4 : undefined,
 
   // 👇 Use multiple reporters (for Jenkins & local viewing)
-  reporter: [
-    ["list"],
-    ["junit", { outputFile: "results/test-results.xml" }],
-    ["html", { open: "never" }]
-  ],
+ reporter: [
+  ['list'],
+  ['junit', { outputFile: 'results/test-results.xml' }],
+  ['html', { open: 'never' }]
+],
+
 
   use: {
     headless: true,
